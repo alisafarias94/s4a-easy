@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پنل مدیریت</title>
+<style>
+body{background:#0a0a0f;color:#e0e0ff;font-family:sans-serif;padding:20px;}
+.box{background:#111827aa;padding:20px;border-radius:12px;margin-bottom:20px;backdrop-filter:blur(12px);box-shadow:0 0 20px #0ea5e933;max-width:600px;}
+input,textarea{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:none;background:#1f2937;color:#fff;}
+.btn{padding:8px 14px;background:#0ea5e9;border-radius:8px;color:#000;font-weight:700;border:none;}
+</style>
+</head>
+<body>
+<h2>پنل مدیریت S4A EASY</h2>
+
+<div class="box"><h3>درباره ما</h3><textarea id="about"></textarea><button class="btn" onclick="save('about')">ذخیره</button></div>
+<div class="box"><h3>دوره‌ها (هر خط یک مورد)</h3><textarea id="courses"></textarea><button class="btn" onclick="saveList('courses')">ذخیره</button></div>
+<div class="box"><h3>اخبار</h3><textarea id="news"></textarea><button class="btn" onclick="saveList('news')">ذخیره</button></div>
+<div class="box"><h3>قیمت‌ها</h3><textarea id="pricing"></textarea><button class="btn" onclick="saveList('pricing')">ذخیره</button></div>
+<div class="box"><h3>سوالات متداول</h3><textarea id="faq"></textarea><button class="btn" onclick="saveList('faq')">ذخیره</button></div>
+<div class="box"><h3>تماس با ما</h3><textarea id="contact"></textarea><button class="btn" onclick="save('contact')">ذخیره</button></div>
+
+<script>
+function load(){
+['about','contact'].forEach(k=>{document.getElementById(k).value=localStorage.getItem(k)||""});
+['courses','news','pricing','faq'].forEach(k=>{
+ let d=JSON.parse(localStorage.getItem(k)||"[]");document.getElementById(k).value=d.join("\n");
+});
+}
+function save(k){localStorage.setItem(k,document.getElementById(k).value);alert("ذخیره شد");}
+function saveList(k){let arr=document.getElementById(k).value.split("\n").filter(x=>x.trim()!="");localStorage.setItem(k,JSON.stringify(arr));alert("ذخیره شد");}
+load();
+</script>
+
+</body>
+</html>

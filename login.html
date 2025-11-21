@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورود مدیریت</title>
+<style>
+body {background:#0a0a0f;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;}
+.box {background:#111827cc;padding:30px;border-radius:12px;width:260px;backdrop-filter:blur(12px);box-shadow:0 0 20px #0ea5e955;}
+input{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:none;background:#1f2937;color:#fff;}
+.btn{background:#0ea5e9;color:#000;padding:10px;border-radius:8px;width:100%;font-weight:700;border:none;}
+</style>
+</head>
+<body>
+<div class="box">
+<h3>ورود مدیر</h3>
+<input id="email" placeholder="ایمیل">
+<input id="pass" type="password" placeholder="پسورد">
+<button class="btn" onclick="login()">ورود</button>
+</div>
+<script>
+function login(){
+ if(document.getElementById("email").value=="alisafarias94@gmail.com" &&
+    document.getElementById("pass").value=="safarias94"){
+    location.href="admin.html";
+ } else alert("ایمیل یا رمز اشتباه است");
+}
+</script>
+</body>
+</html>
